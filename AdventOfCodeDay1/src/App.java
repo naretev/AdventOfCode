@@ -82,7 +82,7 @@ public class App {
 
                 right--;
             }
-            int x = Integer.parseInt(digitToAdd1 + "" + digitToAdd2);
+            int x = Integer.parseInt(digitToAdd1 + digitToAdd2);
             System.out.println(x);
             sum += x;
         }
