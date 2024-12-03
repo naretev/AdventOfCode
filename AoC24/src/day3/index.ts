@@ -1,22 +1,47 @@
 import { readLines } from "../util"
 
-const main = async () => {
-  const inputs = await readLines();
+// First Solution
+const main1 = async () => {
+  const groups = await readLines();
+
+  const regex = /mul\(\d{1,3},\d{1,3}\)/g;
+  const inputs = groups[0];
+
+  let matchArr: string[] = [];
+
+  for (let i = 0; i < inputs.length; i++) {
+    const matches =  inputs[i].match(regex);
+    if (matches) matchArr = [...matchArr, ...matches];
+  }
+
+  let result = 0;
+  for (let i = 0; i < matchArr.length; i++) {
+    const element = matchArr[i];
+    const numbers = element.replace('mul(', '').replace(')', '').split(',');
+    result += parseInt(numbers[0], 10) * parseInt(numbers[1], 10);
+  }
+
+  console.log(result)
+}
+
+// Second Solution
+const main2 = async () => {
+  const groups = await readLines();
 
   const regex = /(mul\(\d{1,3},\d{1,3}\)|don't\(\)|do\(\))/g;
-  const input = inputs[0];
+  const inputs = groups[0];
 
-  let str: string[] = [];
+  let matchArr: string[] = [];
 
-  for (let i = 0; i < input.length; i++) {
-    const matches =  input[i].match(regex);
-    if (matches) str = [...str, ...matches];
+  for (let i = 0; i < inputs.length; i++) {
+    const matches =  inputs[i].match(regex);
+    if (matches) matchArr = [...matchArr, ...matches];
   }
 
   let result = 0;
   let active = true;
-  for (let i = 0; i < str.length; i++) {
-    const element = str[i];
+  for (let i = 0; i < matchArr.length; i++) {
+    const element = matchArr[i];
     if (element === 'do()') {
       active = true;
     } else if (element === "don't()") {
@@ -30,4 +55,4 @@ const main = async () => {
   console.log(result)
 }
 
-main();
+main2();

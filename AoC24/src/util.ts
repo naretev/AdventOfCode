@@ -7,8 +7,8 @@ export const readLines = async (): Promise<string[][]> => {
       output: process.stdout,
     });
 
-    const inputs: string[][] = new Array();
-    inputs[0] = new Array();
+    const groups: string[][] = new Array();
+    groups[0] = new Array();
     let index = 0;
     console.log("Enter multiple lines (type 'next' to create a new group or 'exit' to finish):");
 
@@ -17,16 +17,16 @@ export const readLines = async (): Promise<string[][]> => {
         rl.close();
       } else if (input.toLowerCase() === 'next') {
         index++;
-        inputs[index] = new Array();
+        groups[index] = new Array();
       } else {
-        inputs[index].push(input);
+        groups[index].push(input);
       }
     });
 
     rl.on('close', () => {
       console.log('Input structure:')
-      console.log(inputs.map(input => input.length));
-      resolve(inputs);
+      console.log(groups.map(input => input.length));
+      resolve(groups);
     });
   });
 }
