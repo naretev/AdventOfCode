@@ -75,4 +75,4 @@ const main2 = async () => {
   console.log(result);
 }
 
-main1();
+main2();
