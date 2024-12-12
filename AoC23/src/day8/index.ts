@@ -1,5 +1,8 @@
+import { readLines } from "../util";
 
-export const solution1 = (inputs: string[][]) => {
+const main1 = async () => {
+  const inputs = await readLines();
+
   const map = new Map<string, string[]>();
 
   const instructions = inputs[0][0];
@@ -32,7 +35,9 @@ export const solution1 = (inputs: string[][]) => {
   console.log(iterations * instructions.length);
 }
 
-export const solution2 = (inputs: string[][]) => {
+export const main2 = async () => {
+  const inputs = await readLines();
+  
   const map = new Map<string, string[]>();
 
   const instructions = inputs[0][0];
@@ -100,3 +105,5 @@ export const solution2 = (inputs: string[][]) => {
 
   console.log(prediction * instructions.length);
 }
+
+main2();
