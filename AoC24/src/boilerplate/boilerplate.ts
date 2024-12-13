@@ -7,6 +7,13 @@ const main1 = async () => {
   const inputs1 = groups[0];
   const inputs2 = groups[1];
   const inputs3 = groups[2];
+  
+  const dirs = [
+    {xMod: 0, yMod: -1},
+    {xMod: 1, yMod: 0},
+    {xMod: 0, yMod: 1},
+    {xMod: -1, yMod: 0},
+  ]
 
   let result = 0;
 
@@ -25,6 +32,13 @@ const main2 = async () => {
   const inputs1 = groups[0];
   const inputs2 = groups[1];
   const inputs3 = groups[2];
+  
+  const dirs = [
+    {xMod: 0, yMod: -1},
+    {xMod: 1, yMod: 0},
+    {xMod: 0, yMod: 1},
+    {xMod: -1, yMod: 0},
+  ]
 
   let result = 0;
 

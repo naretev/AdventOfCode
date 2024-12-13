@@ -10,12 +10,12 @@ export const readLines = async (): Promise<string[][]> => {
     const groups: string[][] = new Array();
     groups[0] = new Array();
     let index = 0;
-    console.log("Enter multiple lines (type 'next' to create a new group or 'exit' to finish):");
+    console.log("Enter multiple lines (type '' to create a new group or 'exit' to finish):");
 
     rl.on('line', (input) => {
       if (input.toLowerCase() === 'exit') {
         rl.close();
-      } else if (input.toLowerCase() === 'next') {
+      } else if (input.toLowerCase() === '') {
         index++;
         groups[index] = new Array();
       } else {
