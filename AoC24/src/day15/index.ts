@@ -1,6 +1,6 @@
 import { readLines } from "../util"
 
-const framerate = 1000/4
+const framerate = 1000/10
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // First Solution
@@ -52,15 +52,7 @@ const main1 = async () => {
       }
 
       // Uncomment for debugging
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
+      // console.clear();
       // console.log(direction,direction,direction,direction,direction,direction,direction,direction,direction);
       // console.log('');
       // matrix.forEach((v) => console.log(v.join('')))
@@ -207,15 +199,7 @@ const main2 = async () => {
       }
 
       // Uncomment for debugging
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
-      // console.log('');
+      // console.clear();
       // console.log(direction,direction,direction,direction,direction,direction,direction,direction,direction);
       // console.log('');
       // matrix.forEach((v) => console.log(v.join('')))
