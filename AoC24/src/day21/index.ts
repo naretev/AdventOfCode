@@ -217,32 +217,27 @@ const main2 = async () => {
 
   const arrowPadMap = new Map<string, number>();
 
-  const findArrowPadInstructions = (instructions: string, startPos: keyof ArrowPad, depth: number): number => {
-    if (arrowPadMap.has(startPos + '+' + instructions + '+' + depth)) {
-      return arrowPadMap.get(startPos + '+' + instructions + '+' + depth) || 0;
+  const findArrowPadInstructions = (instructions: string, depth: number): number => {
+    if (arrowPadMap.has(`${instructions}+${depth}`)) {
+      return arrowPadMap.get(`${instructions}+${depth}`)!;
     }
     if (depth === 25) {
       return instructions.length;
     }
 
     let length = 0;
-    let position = startPos;
+    let position: keyof ArrowPad = 'A';
 
     for (let i = 0; i < instructions.length; i++) {
       const target = instructions.charAt(i) as keyof ArrowPad;
       
       const positionC = arrowPad[position];
       const targetC = arrowPad[target];
-      
-      // console.log(instructions);
-      // console.log(position);
-      // console.log(target);
-      // console.log('-----------------')
 
       const xDiff = targetC.x - positionC.x;
       const yDiff = targetC.y - positionC.y;
 
-      const canArmMoveOutOfBounds =  (targetC.x === 0 || positionC.x === 0) && (targetC.y === 0 || positionC.y === 0);
+      const canArmMoveOutOfBounds = (targetC.x === 0 || positionC.x === 0) && (targetC.y === 0 || positionC.y === 0);
 
       if (!canArmMoveOutOfBounds && xDiff !== 0 && yDiff !== 0) {
         let yIns = '';
@@ -261,7 +256,7 @@ const main2 = async () => {
           xIns += createString('<', xDiff)
         }
         
-        length += Math.min(findArrowPadInstructions(xIns + yIns + 'A', 'A', depth+1), findArrowPadInstructions(yIns + xIns + 'A', 'A', depth+1))
+        length += Math.min(findArrowPadInstructions(xIns + yIns + 'A', depth+1), findArrowPadInstructions(yIns + xIns + 'A', depth+1))
       } else {
         let ins = ''
         if (xDiff > 0) {
@@ -280,12 +275,12 @@ const main2 = async () => {
           ins += createString('^', yDiff)
         }
 
-        length += findArrowPadInstructions(ins + 'A', 'A', depth+1);
+        length += findArrowPadInstructions(ins + 'A', depth+1);
       }
       position = target;
     }
 
-    arrowPadMap.set(startPos + '+' + instructions + '+' + depth, length);
+    arrowPadMap.set(`${instructions}+${depth}`, length);
     return length;
   }
 
@@ -350,22 +345,14 @@ const main2 = async () => {
     
     findNumPadInstructions(input, 0, '', 'A', numPadArr)
 
-    console.log(numPadArr)
-
     let instructionLength = Infinity;
 
     numPadArr.forEach((instructions) => {
-      console.log(instructions)
-      instructionLength = Math.min(instructionLength, findArrowPadInstructions(instructions, 'A', 0));
+      instructionLength = Math.min(instructionLength, findArrowPadInstructions(instructions, 0));
     })
-
-    console.log(instructionLength)
-
-    console.log(arrowPadMap)
 
     const numricValue = Number(input.replace('A', ''));
     result += instructionLength * numricValue;
-    console.log(result);
   }
 
   console.log(result);
