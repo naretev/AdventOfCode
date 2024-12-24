@@ -3,6 +3,7 @@ import { readLines } from "../util"
 // First Solution
 const main1 = async () => {
   const groups = await readLines();
+  const now = Date.now();
   
   const inputs1 = groups[0];
   const inputs2 = groups[1];
@@ -23,11 +24,14 @@ const main1 = async () => {
   }
 
   console.log(result);
+  const after = Date.now();
+  console.log(`ms: ${after - now}`);
 }
 
 // Second Solution
 const main2 = async () => {
   const groups = await readLines();
+  const now = Date.now();
   
   const inputs1 = groups[0];
   const inputs2 = groups[1];
@@ -48,6 +52,8 @@ const main2 = async () => {
   }
 
   console.log(result);
+  const after = Date.now();
+  console.log(`ms: ${after - now}`);
 }
 
 main1();

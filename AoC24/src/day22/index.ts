@@ -37,6 +37,7 @@ const main1 = async () => {
 // Second Solution
 const main2 = async () => {
   const groups = await readLines();
+  const now = Date.now();
   
   const initialSecrets = groups[0];
 
@@ -103,6 +104,8 @@ const main2 = async () => {
   })
 
   console.log(result);
+  const after = Date.now();
+  console.log(`ms: ${after - now}`);
 }
 
 main2();
