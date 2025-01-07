@@ -249,9 +249,6 @@ const main3 = async () => {
   let highestScore = -1;
   let divideRate = 2**6; // or 1000
   while (true) {
-    if (leftPointer > BigInt(236580836040301)) console.log("Hmmmm")
-    if (rightPointer < BigInt(236580836040301)) console.log("Uh oh")
-
     if (highestScore === lastHighestScore) divideRate *= 2**3; // or 2
     lastHighestScore = highestScore;
 
