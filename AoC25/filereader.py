@@ -26,7 +26,7 @@ def _read_text(file) -> str:
 
 def read_file(type, file):
     if type != "lines" and type != "text":
-        return
+        raise ValueError("type must be: 'lines' or 'text'")
     
     if type == "lines":
         return _read_lines(file)
