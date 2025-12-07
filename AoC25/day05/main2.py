@@ -22,7 +22,7 @@ def trimRange(startI: int, startL: int, startR: int) -> int:
     l = startL
     r = startR
     for i in range(startI, length):
-        a, b = ranges[i][0], ranges[i][1]
+        a, b = ranges[i]
         if a <= l and r <= b: return 0
         if l < a and b < r:
             return trimRange(i+1, l, a-1) + trimRange(i+1, b+1, r)
