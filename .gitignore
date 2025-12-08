@@ -1,5 +1,4 @@
 *.txt
-AoC25/__pycache__/filereader.cpython-314.pyc
-AoC25/.DS_Store
-/AoC25/copy
-.DS_Store
+*/copy
+*.DS_Store
+*.pyc

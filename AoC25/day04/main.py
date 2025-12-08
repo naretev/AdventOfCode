@@ -7,14 +7,14 @@ sys.path.append(parent_dir)
 from filereader import read_file
 
 grid = read_file("lines", __file__)
-yl = len(grid)
-xl = len(grid[0])
+iLen = len(grid)
+jLen = len(grid[0])
 
-def getVal(y: int, x: int) -> str:
-    if x < 0 or x >= xl or y < 0 or y >= yl:
+def getVal(i: int, j: int) -> str:
+    if j < 0 or j >= jLen or i < 0 or i >= iLen:
         return '.'
     else:
-        return grid[y][x]
+        return grid[i][j]
 
 dirs = [
     [0, 1],
@@ -27,16 +27,16 @@ dirs = [
     [1, 1]
 ]
 
-xCount = 0
-for y in range(yl):
-    for x in range(xl):
-        if grid[y][x] == '@':
+count = 0
+for i in range(iLen):
+    for j in range(jLen):
+        if grid[i][j] == '@':
             rolls = 0
-            for yMod, xMod in dirs:
-                if getVal(y+yMod, x+xMod) == '@':
+            for iDir, jDir in dirs:
+                if getVal(i+iDir, j+jDir) == '@':
                     rolls += 1
             
             if rolls < 4:
-                xCount += 1
+                count += 1
 
-print(xCount)
+print(count)
