@@ -24,10 +24,9 @@ for i in range(len(lines[0])):
     
     if numStr == '':
         total += currSum
+    elif currOpr == '+':
+        currSum += int(numStr)
     else:
-        if currOpr == '+':
-            currSum += int(numStr)
-        else:
-            currSum *= int(numStr)
+        currSum *= int(numStr)
 
 print(total+currSum)
