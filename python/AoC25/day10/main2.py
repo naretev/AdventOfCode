@@ -68,9 +68,7 @@ for i in range(len(joltage)):
 
     if solution is None:
         print("No solution")
-    else:
-        presses = sum(solution)
-        print(presses)
-        count += presses
+    else: 
+        count += sum(solution)
 
 print(count)

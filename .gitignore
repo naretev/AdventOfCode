@@ -2,3 +2,5 @@
 */copy
 *.DS_Store
 *.pyc
+/.venv
+/.vscode
