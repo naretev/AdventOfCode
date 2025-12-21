@@ -1,5 +1,5 @@
 *.txt
-*/copy
+**/copy/
 *.DS_Store
 *.pyc
 /.venv
